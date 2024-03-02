@@ -7,9 +7,41 @@
   	<servlet-class>com.test.TestServlet</servlet-class>
   </servlet>
   
+   <servlet>
+  	<servlet-name>Ex01</servlet-name>
+  	<servlet-class>com.test.lesson01.UrlMappingEx01</servlet-class>
+  </servlet>
+    
+   <servlet>
+  	<servlet-name>Quiz01</servlet-name>
+  	<servlet-class>com.test.lesson01.UrlMappingQuiz01</servlet-class>
+  </servlet>
+  
+  
+  
   <servlet-mapping>
   	<servlet-name>Hello</servlet-name>
   	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Ex01</servlet-name>
+  	<url-pattern>/lesson01/ex01</url-pattern>
+  </servlet-mapping>
+    
+  <servlet-mapping>
+  	<servlet-name>Quiz01</servlet-name>
+  	<url-pattern>/lesson01/quiz01</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Quiz02</servlet-name>
+  	<servlet-class>com.test.lesson01.UrlMappingQuiz02</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Quiz02</servlet-name>
+  	<url-pattern>/lesson01/quiz02</url-pattern>
   </servlet-mapping>
   
 </web-app>
