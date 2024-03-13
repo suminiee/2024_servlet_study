@@ -1,0 +1,13 @@
+@charset "UTF-8";
+a {text-decoration:none; color:white;}
+a:hover {text-decoration:none; color:white};
+
+#wrap {width:800px;}
+
+header {height:80px;}
+
+/*nav {height:50px;}*/
+
+/* .contents {height:500px;} */
+
+footer {height:30px;}

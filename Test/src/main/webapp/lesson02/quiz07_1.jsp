@@ -9,12 +9,11 @@
 <head>
 <meta charset="UTF-8">
 <title>교포문고</title>
-  <!-- bootstrap CDN Link -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-</head>
-<body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <%
 	List<Map<String, Object>> list = new ArrayList<>();
 	Map<String, Object> map = new HashMap<String, Object>() {
@@ -61,30 +60,30 @@
 	};
 	list.add(map);
 %>
+</head>
+<body>
+	<%
+		// 테이블에 보여줄 책정보(target) 뽑아내기
+		int id = Integer.parseInt(request.getParameter("id"));
+		Map<String, Object> target = new HashMap<>();
+		for (Map<String, Object> item : list) {
+			if ((Integer) item.get("id") == id) {
+				target = item;
+				break;
+			}
+		}
+	%>
 	<div class="container">
-		<h1 class="text-center mt-4">책 목록</h1>
-		<table class="table text-center">
-			<thead>
-				<tr> 
-					<th>id</th>
-					<th>표지</th>
-					<th>제목</th>
-				</tr>
-			</thead>
-			<tbody>
-			<%
-				for (Map<String, Object> item : list) {
-			%>	
-				<tr>
-					<td><%=item.get("id") %></td>
-					<td><img src="<%=item.get("image") %>" width="50" alt="표지"></td>
-					<td><a href="/lesson02/quiz07_1.jsp?id=<%=item.get("id") %>"><%=item.get("title") %></a></td>
-				</tr>
-			<%
-				}
-			%>
-			</tbody>
-		</table>
+		<div class="d-flex">
+			<div>
+				<img src="<%=target.get("image") %>" width="300">
+			</div>
+			<div class="ml-3">
+				<span class="display-1 font-weight-bold d-block"><%=target.get("title") %></span>
+				<span class="display-3 text-info d-block"><%=target.get("author") %></span>
+				<span class="display-4 text-secondary d-block"><%=target.get("publisher") %></span>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
