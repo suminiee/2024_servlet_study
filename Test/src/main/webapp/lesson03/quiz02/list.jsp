@@ -10,7 +10,7 @@
     Map<String, Object> artistInfo = new HashMap<>();
     artistInfo.put("name", "아이유");
     artistInfo.put("debute", 2008);
-    artistInfo.put("agency", "EDAM엔터테인먼트");
+    artistInfo.put("agency", "EDAM 엔터테인먼트");
     artistInfo.put("photo", "http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/867/444/81867444_1616662460652_1_600x600.JPG");
 
 
@@ -88,12 +88,12 @@
 	<%-- 아티스트 정보 --%>
 	<div class="border border-success d-flex p-3">
 		<div>
-			<img src="http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/867/444/81867444_1616662460652_1_600x600.JPG" alt="가수이미지" width="150">
+			<img src="<%= artistInfo.get("photo") %>" alt="가수이미지" width="150">
 		</div>
 		<div class="ml-3">
-			<h3>아이유</h3>
-			<div>EDAM 엔터테인먼트</div>
-			<div>2008 데뷔</div>
+			<h3><%= artistInfo.get("name") %></h3>
+			<div><%= artistInfo.get("agency") %></div>
+			<div><%= artistInfo.get("debute") %> 데뷔</div>
 		</div>
 	</div>
 	
@@ -110,13 +110,16 @@
 			</thead>
 			<tbody>
 				<%
-					
+					for (Map<String, Object> item : musicList) {
 				%>
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td><%= item.get("id") %></td>
+					<td><a href="/lesson03/quiz02/info_template.jsp?id=<%=item.get("id")%>"><%= item.get("title") %></a></td>
+					<td><%= item.get("album") %></td>
 				</tr>
+				<%
+					}
+				%>
 			</tbody>
 		</table>
 	</div>

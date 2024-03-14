@@ -3,7 +3,7 @@
 <%-- logo --%>
 <div class="col-2">
 	<h3>
-		<a href="" class="text-success">Melong</a>
+		<a href="/lesson03/quiz02/list_template.jsp" class="text-success">Melong</a>
 	</h3>
 </div>
 
